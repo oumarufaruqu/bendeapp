@@ -8,12 +8,3 @@ abstract class CourseEvent extends Equatable {
 }
 
 class LoadCourses extends CourseEvent {}
-
-class LoadCourseDetails extends CourseEvent {
-  final String courseId;
-
-  const LoadCourseDetails(this.courseId);
-
-  @override
-  List<Object> get props => [courseId];
-}

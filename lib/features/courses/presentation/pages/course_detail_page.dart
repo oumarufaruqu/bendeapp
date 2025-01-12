@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bende/core/theme/app_typography.dart';
 import 'package:bende/features/courses/domain/entities/course.dart';
-import 'package:bende/features/courses/presentation/widgets/subject_accordion.dart';
 
 class CourseDetailPage extends StatelessWidget {
   final Course course;
@@ -20,12 +19,22 @@ class CourseDetailPage extends StatelessWidget {
           style: AppTypography.h2,
         ),
       ),
-      body: ListView.builder(
-        itemCount: course.subjects.length,
-        itemBuilder: (context, index) {
-          final subject = course.subjects[index];
-          return SubjectAccordion(subject: subject);
-        },
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Course Code: ${course.code}',
+              style: AppTypography.bodyLarge,
+            ),
+            const SizedBox(height: 16),
+            Text(
+              course.description,
+              style: AppTypography.bodyMedium,
+            ),
+          ],
+        ),
       ),
     );
   }
