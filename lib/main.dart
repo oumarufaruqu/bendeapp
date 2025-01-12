@@ -4,6 +4,7 @@ import 'package:bende/core/injection/injection.dart';
 import 'package:bende/core/theme/app_theme.dart';
 import 'package:bende/features/courses/presentation/bloc/course_bloc.dart';
 import 'package:bende/features/courses/presentation/pages/courses_page.dart';
+import 'package:bende/core/presentation/pages/widget_showcase_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +26,11 @@ class BendeApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Bende',
         theme: AppTheme.lightTheme,
-        home: const CoursesPage(),
+        routes: {
+          '/': (context) => const CoursesPage(),
+          '/widget-showcase': (context) => const WidgetShowcasePage(),
+        },
+        initialRoute: '/',
       ),
     );
   }

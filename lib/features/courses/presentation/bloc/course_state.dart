@@ -11,24 +11,6 @@ class CourseInitial extends CourseState {}
 
 class CourseLoading extends CourseState {}
 
-class CoursesLoaded extends CourseState {
-  final List<Course> courses;
-
-  const CoursesLoaded(this.courses);
-
-  @override
-  List<Object> get props => [courses];
-}
-
-class CourseDetailsLoaded extends CourseState {
-  final Course course;
-
-  const CourseDetailsLoaded(this.course);
-
-  @override
-  List<Object> get props => [course];
-}
-
 class CourseError extends CourseState {
   final String message;
 
@@ -36,4 +18,13 @@ class CourseError extends CourseState {
 
   @override
   List<Object> get props => [message];
+}
+
+class CoursesLoaded extends CourseState {
+  final List<Course> courses;
+
+  const CoursesLoaded(this.courses);
+
+  @override
+  List<Object> get props => [courses];
 }
