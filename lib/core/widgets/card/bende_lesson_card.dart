@@ -4,6 +4,7 @@ import 'package:bende/core/theme/app_spacing.dart';
 import 'package:bende/core/theme/app_typography.dart';
 // ignore: unused_import
 import 'package:bende/core/extensions/color_extension.dart';
+import 'package:bende/core/extensions/string_extension.dart';
 
 class BendeLessonCard extends StatelessWidget {
   final String title;
@@ -36,8 +37,14 @@ class BendeLessonCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
         child: Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.only(
+            top: 16,
+            left: 16,
+            right: 16,
+            bottom: 16,
+          ),
           child: Stack(
+            clipBehavior: Clip.none,
             children: [
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +63,7 @@ class BendeLessonCard extends StatelessWidget {
                       const SizedBox(width: 8),
                       Expanded(
                         child: Text(
-                          title.toUpperCase(),
+                          title.toLocaleUpperCase(),
                           style: AppTypography.h3,
                         ),
                       ),
@@ -67,28 +74,33 @@ class BendeLessonCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(
                         left: 16,
-                        right: 48,
+                        right: 16,
                       ),
                       child: Text(
                         subtitle,
                         style: AppTypography.bodyMedium.copyWith(
                           color: AppColors.black.withValues(alpha: 0.8),
+                          height: 1.4,
                         ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 12),
                   ],
                 ],
               ),
               Positioned(
-                right: 0,
-                bottom: 0,
-                child: Text(
-                  code,
-                  style: AppTypography.labelSmall.copyWith(
-                    color: AppColors.orange.withValues(alpha: 0.5),
+                right: -4,
+                bottom: -12,
+                child: Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: Text(
+                    code,
+                    style: AppTypography.labelSmall.copyWith(
+                      color: AppColors.orange.withValues(alpha: 0.5),
+                      letterSpacing: 0.5,
+                    ),
                   ),
                 ),
               ),
